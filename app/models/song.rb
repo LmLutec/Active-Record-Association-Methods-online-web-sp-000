@@ -13,13 +13,10 @@ class Song < ActiveRecord::Base
     # Drake doesn't exist in the database as an artist yet, so you'll have to create a record
     # Hint: you won't want to create an artist record every time this method is called, only if an Drake is *not found*
     #binding.pry 
-    Artist.where(name: "Drake").first_or_create do |artist|
-      artist.name = "Drake"
-    end 
+    Artist.find_or_create_by(name: "Drake")
     
-  #   MyStat.where(name: statistic_name).first_or_create do |statistic|
-  # statistic.value = calculate_percentage
-  # statistic.statistic_type = "percentage"
-    
+    # self.artist.where(name: "Drake").first_or_create do |artist|
+    #   artist.name = "Drake"
+    #   end 
   end
 end
